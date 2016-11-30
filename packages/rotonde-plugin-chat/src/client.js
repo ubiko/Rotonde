@@ -7,8 +7,10 @@ export default class ChatClientPlugin extends RotondeClientPlugin {
     super(`${url}${NAMESPACES.ROTONDE_PLUGIN_CHAT}`);
   }
 
-  sendMessage(user, message) {
+  sendMessage(id, type, user, message) {
     return this.publish(MESSAGES.ROTONDE_PLUGIN_CHAT.MESSAGE, {
+      id,
+      type,
       user,
       message,
       timestamp: new Date()

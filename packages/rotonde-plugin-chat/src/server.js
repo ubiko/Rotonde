@@ -8,8 +8,10 @@ export default class ChatServerPlugin extends RotondeServerPlugin {
     this.namespace = this.server.of(NAMESPACES.ROTONDE_PLUGIN_CHAT);
   }
 
-  sendMessage(user, message) {
+  sendMessage(id, type, user, message) {
     this.namespace.emit(MESSAGES.ROTONDE_PLUGIN_CHAT.MESSAGE, {
+      id,
+      type,
       user,
       message
     });
